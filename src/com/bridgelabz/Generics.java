@@ -2,7 +2,7 @@ package com.bridgelabz;
 
 public class Generics {
 
-    public static Integer compareToInteger(Integer a, Integer b, Integer c) {
+ /*   public static Integer compareToInteger(Integer a, Integer b, Integer c) {
         if (a > b && a > c) {
             return a;
         } else if (b > c) {
@@ -39,13 +39,25 @@ public class Generics {
             return str3;
         }
 
+    }                                   */
+
+    // Using Generics Method.
+    public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
+
+        if (y.compareTo(x) > 0) {
+            return y;
+        } else if (z.compareTo(y) > 0) {
+            return z;
+        } else {
+            return x;
+        }
     }
 
     public static void main(String[] args) {
         // Welcome to Generics program.
 
-        System.out.println("Maximum number out of three is: " + compareToInteger(5, 7, 8));
-        System.out.println("Maximum number out of three is: " + compareToFloat(-5f, -7f, -8f));
-        System.out.println("Maximum among three is: " + compareToString("Apple", "Peach", "Banana"));
+        System.out.println("Maximum number out of three integers is: " + maximum(1, -8, -20));
+        System.out.println("Maximum number out of three float is: " + maximum(-5f, -7f, -8f));
+        System.out.println("Maximum among three string is: " + maximum("Apple", "Peach", "Banana"));
     }
 }
